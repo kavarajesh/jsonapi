@@ -1,10 +1,12 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jsonapi/ProductDetail.dart';
 import 'package:jsonapi/ProductModel.dart';
 import 'package:jsonapi/Welcom.dart';
 import 'package:jsonapi/comm.dart';
+import 'package:jsonapi/jsonplac.dart';
 
 class Fetchdata extends StatefulWidget {
   const Fetchdata({Key? key}) : super(key: key);
@@ -17,6 +19,15 @@ class _FetchdataState extends State<Fetchdata> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: FloatingActionButton(
+          onPressed: (){
+            Navigator.push(context,CupertinoPageRoute
+              (builder: (_)=>josnplacholder()));
+          },child: Icon(Icons.arrow_forward_ios),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.orange,
         elevation: 0,

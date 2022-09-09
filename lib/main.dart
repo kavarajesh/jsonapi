@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jsonapi/fetchdata.dart';
+import 'package:jsonapi/jsonplac.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Fetchdata(),
+      home: Fetchdata(),
     );
   }
 }

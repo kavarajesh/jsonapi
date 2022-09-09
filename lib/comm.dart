@@ -4,10 +4,10 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:jsonapi/Arr.dart';
+import 'package:jsonapi/model/Arr.dart';
 import 'package:jsonapi/ProductModel.dart';
 import 'package:jsonapi/Welcom.dart';
-import 'package:jsonapi/jsonplacmodel.dart';
+import 'package:jsonapi/model/jsonplacmodel.dart';
 
 class Commm {
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jsonapi/Arr.dart';
+import 'package:jsonapi/model/Arr.dart';
 import 'package:jsonapi/comm.dart';
-import 'package:jsonapi/jsonplacmodel.dart';
+import 'package:jsonapi/model/jsonplacmodel.dart';
 
 class josnplacholder extends StatelessWidget {
   josnplacholder({Key? key}) : super(key: key);

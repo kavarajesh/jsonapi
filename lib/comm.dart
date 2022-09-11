@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:jsonapi/model/Arr.dart';
 import 'package:jsonapi/ProductModel.dart';
 import 'package:jsonapi/Welcom.dart';
+import 'package:jsonapi/model/album.dart';
 import 'package:jsonapi/model/jsonplacmodel.dart';
 
 class Commm {
@@ -29,7 +30,6 @@ class Commm {
   Future<List<Welcome1>> fetchdatajsonpalc()async{
 
    //responce in Array from
-
    /*
    [
   {
@@ -43,7 +43,7 @@ class Commm {
     "title": "sunt qui excepturi placeat culpa"
   },
   {
-    "userId": 1,
+    "userId":  1,
     "id": 3,
     "title": "omnis laborum odio"
   },
@@ -76,4 +76,22 @@ class Commm {
      throw "on internet";
    }
   }
+
+  Future<List<Album>> getAlbum(page)async{
+   String url = 'https://jsonplaceholder.typicode.com/comments';
+  // https://jsonplaceholder.typicode.com/comments?postId=2
+
+   String paggination ='https://jsonplaceholder.typicode.com/comments?postId='+ '${page}';
+
+   final res = await http.get(Uri.parse(paggination));
+   print('Album data == > ${res.body}');
+   List decodedata = jsonDecode(res.body);
+   if(res.statusCode == 200){
+     return decodedata.map((data) => Album.fromJson(data)).toList();
+
+   }else{
+     return decodedata.map((data) => Album.fromJson(data)).toList();
+   }
+  }
+
 }

@@ -1,12 +1,16 @@
 
 
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jsonapi/AlbumdataList.dart';
 import 'package:jsonapi/ProductDetail.dart';
 import 'package:jsonapi/ProductModel.dart';
 import 'package:jsonapi/Welcom.dart';
 import 'package:jsonapi/comm.dart';
 import 'package:jsonapi/jsonplac.dart';
+import 'package:http/http.dart'as http;
 
 class Fetchdata extends StatefulWidget {
   const Fetchdata({Key? key}) : super(key: key);
@@ -40,7 +44,12 @@ class _FetchdataState extends State<Fetchdata> {
               else
                 page =  page -  1;
             });
-          }, icon: Icon(Icons.add,size: 30,))
+          }, icon: Icon(Icons.add,size: 30,)
+          ),
+          IconButton(onPressed: (){
+            Navigator.push(context, CupertinoPageRoute(builder: (_)=>AlbumdataList()));
+
+          }, icon: Icon(Icons.email))
         ],
       ),
       backgroundColor: Colors.orange,

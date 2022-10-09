@@ -4,13 +4,16 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jsonapi/AlbumdataList.dart';
-import 'package:jsonapi/ProductDetail.dart';
-import 'package:jsonapi/ProductModel.dart';
-import 'package:jsonapi/Welcom.dart';
+import 'package:jsonapi/Apicall/AlbumdataList.dart';
+import 'package:jsonapi/Apicall/ProductDetail.dart';
+import 'package:jsonapi/Apicall/ProductModel.dart';
+import 'package:jsonapi/Apicall/SingleApiobject.dart';
+import 'package:jsonapi/Apicall/getUserdatalist.dart';
+import 'package:jsonapi/model/Welcom.dart';
 import 'package:jsonapi/comm.dart';
-import 'package:jsonapi/jsonplac.dart';
+import 'package:jsonapi/Apicall/jsonplac.dart';
 import 'package:http/http.dart'as http;
+
 
 class Fetchdata extends StatefulWidget {
   const Fetchdata({Key? key}) : super(key: key);
@@ -30,6 +33,50 @@ class _FetchdataState extends State<Fetchdata> {
             Navigator.push(context,CupertinoPageRoute
               (builder: (_)=>josnplacholder()));
           },child: Icon(Icons.arrow_forward_ios),
+        ),
+      ),
+      drawer: Drawer(
+
+        child: Column(
+          children: [
+            Container(
+              height: 200,
+            ),
+            Divider(),
+            ListTile(
+              tileColor: Colors.orange,
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_)=>SingleApiobject()));
+              },
+              title:Text('Single Objectdata get'
+              ),
+              subtitle: Text('JsonPlacehlder'
+              ),
+            ),
+            Divider(),
+            ListTile(
+              tileColor: Colors.orange,
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_)=>GetUserListData()));
+              },
+              title:Text('get user list '
+              ),
+              subtitle: Text('JsonPlacehlder'
+              ),
+            ),
+            Divider(),
+            ListTile(
+              tileColor: Colors.orange,
+              onTap: (){
+
+              },
+              title:Text('Scan code '),
+              subtitle: Text('scan code using cemera'
+              ),
+            )
+          ],
         ),
       ),
       appBar: AppBar(
@@ -83,7 +130,7 @@ class _FetchdataState extends State<Fetchdata> {
                         itemCount: snapshot.data!.data!.length,
                         itemBuilder: (context, index) {
                           var product = snapshot.data!.data![index];
-                          return  InkWell(
+                          return InkWell(
                             onTap: (){
                               Navigator.push(context, MaterialPageRoute(builder: (_)=>ProductDetail(
                                email: snapshot.data!.data![index].email,
@@ -111,7 +158,7 @@ class _FetchdataState extends State<Fetchdata> {
                                       product.email.toString(),
                                       style: TextStyle(fontSize: 20),
                                     ),
-                                    Row(
+                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(

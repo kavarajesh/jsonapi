@@ -161,12 +161,10 @@ class _josnplacholderState extends State<josnplacholder> {
     );
   }
 }
-
 class Debouncer {
   int? milliseconds;
   VoidCallback? action;
   Timer? timer;
-
   run(VoidCallback action) {
     if (null != timer) {
       timer!.cancel();
